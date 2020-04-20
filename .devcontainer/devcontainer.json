@@ -1,0 +1,45 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
+// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-existing-docker-compose
+{
+	// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+	"name": "Go",
+
+	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
+	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
+	"dockerComposeFile": [
+		"../docker-compose.yml",
+		"docker-compose.yml"
+	],
+
+	// The 'service' property is the name of the service for the container that VS Code should
+	// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
+	"service": "app",
+
+	// The optional 'workspaceFolder' property is the path VS Code should open by default when
+	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
+	"workspaceFolder": "/app",
+
+	// Uncomment the next line if you want to keep your containers running after VS Code shuts down.
+	// "shutdownAction": "none",
+
+	// Uncomment the next line if you want to add in default container specific settings.json values
+	"settings": {
+		"go.gopath": "/go",
+		"go.inferGopath": true,
+		"go.useLanguageServer": true,
+		"go.formatTool": "goimports",
+		"[go]": {
+			"editor.snippetSuggestions": "none",
+			"editor.codeActionsOnSave": {
+				"source.organizeImports": true
+			}
+		},
+		"go.autocompleteUnimportedPackages": true
+	},
+
+	// Uncomment the next line to run commands after the container is created - for example installing git.
+	"postCreateCommand": "go get -u -v github.com/ramya-rao-a/go-outline && go get -u -v golang.org/x/tools/cmd/gopls && go get -u -v github.com/go-delve/delve/cmd/dlv && go get -u -v github.com/acroca/go-symbols && go get -u -v github.com/mdempsky/gocode && go get -u -v github.com/rogpeppe/godef && go get -u -v golang.org/x/tools/cmd/godoc && go get -u -v golang.org/x/lint/golint && go get -u -v golang.org/x/tools/cmd/goimports",
+
+	// Add the IDs of any extensions you want installed in the array below.
+	"extensions": ["ms-vscode.go", "premparihar.gotestexplorer"]
+}

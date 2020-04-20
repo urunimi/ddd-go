@@ -1,0 +1,18 @@
+{
+    "go.docsTool": "gogetdoc",
+    "go.useLanguageServer": true,
+    "go.testEnvVars": {
+        "PORT": "8079",
+        "DATA_SOURCE_NAME": "postgres://postgres:postgres@127.0.0.1:5432/gorest?sslmode=disable",
+        "LOG_LEVEL": "DEBUG",
+        "LOG_FORMAT": "text"
+    },
+    "go.coverOnSave": true,
+    "go.coverageDecorator": {
+        "type": "gutter",
+        "coveredGutterStyle": "blockgreen",
+        "uncoveredGutterStyle": "blockred"
+    },
+    "go.coverOnSingleTest": true,
+    "go.inferGopath": false
+}
